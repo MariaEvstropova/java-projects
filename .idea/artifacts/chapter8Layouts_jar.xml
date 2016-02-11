@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="chapter8Layouts:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/chapter8Layouts_jar</output-path>
+    <root id="archive" name="chapter8Layouts.jar">
+      <element id="module-output" name="chapter8Layouts" />
+    </root>
+  </artifact>
+</component>
