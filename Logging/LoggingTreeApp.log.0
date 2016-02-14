@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-02-14T14:46:30</date>
+  <millis>1455453990160</millis>
+  <sequence>0</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$2</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Insert value: 1</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:30</date>
+  <millis>1455453990214</millis>
+  <sequence>1</sequence>
+  <logger>NodeTreeComponent</logger>
+  <level>INFO</level>
+  <class>NodeTreeComponent</class>
+  <method>find</method>
+  <thread>15</thread>
+  <message>The value 1 is not found</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:30</date>
+  <millis>1455453990215</millis>
+  <sequence>2</sequence>
+  <logger>NodeTreeComponent</logger>
+  <level>INFO</level>
+  <class>NodeTreeComponent</class>
+  <method>insert</method>
+  <thread>15</thread>
+  <message>Insert root, value: 1</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:32</date>
+  <millis>1455453992737</millis>
+  <sequence>3</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$2</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Insert value: 5</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:32</date>
+  <millis>1455453992740</millis>
+  <sequence>4</sequence>
+  <logger>NodeTreeComponent</logger>
+  <level>INFO</level>
+  <class>NodeTreeComponent</class>
+  <method>find</method>
+  <thread>15</thread>
+  <message>The value 5 is not found</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:32</date>
+  <millis>1455453992743</millis>
+  <sequence>5</sequence>
+  <logger>NodeTreeComponent</logger>
+  <level>INFO</level>
+  <class>NodeTreeComponent</class>
+  <method>insert</method>
+  <thread>15</thread>
+  <message>Insert a new right child node, value: 5</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:35</date>
+  <millis>1455453995272</millis>
+  <sequence>6</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$2</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Insert value: 3</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:35</date>
+  <millis>1455453995274</millis>
+  <sequence>7</sequence>
+  <logger>NodeTreeComponent</logger>
+  <level>INFO</level>
+  <class>NodeTreeComponent</class>
+  <method>find</method>
+  <thread>15</thread>
+  <message>The value 3 is not found</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:35</date>
+  <millis>1455453995276</millis>
+  <sequence>8</sequence>
+  <logger>NodeTreeComponent</logger>
+  <level>INFO</level>
+  <class>NodeTreeComponent</class>
+  <method>insert</method>
+  <thread>15</thread>
+  <message>Insert a new left child node, value: 3</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:37</date>
+  <millis>1455453997587</millis>
+  <sequence>9</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$2</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Insert value: 6</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:37</date>
+  <millis>1455453997589</millis>
+  <sequence>10</sequence>
+  <logger>NodeTreeComponent</logger>
+  <level>INFO</level>
+  <class>NodeTreeComponent</class>
+  <method>find</method>
+  <thread>15</thread>
+  <message>The value 6 is not found</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:37</date>
+  <millis>1455453997591</millis>
+  <sequence>11</sequence>
+  <logger>NodeTreeComponent</logger>
+  <level>INFO</level>
+  <class>NodeTreeComponent</class>
+  <method>insert</method>
+  <thread>15</thread>
+  <message>Insert a new right child node, value: 6</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:38</date>
+  <millis>1455453998365</millis>
+  <sequence>12</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$6</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Change state show branches</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:41</date>
+  <millis>1455454001414</millis>
+  <sequence>13</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$3</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Find value: 3</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:41</date>
+  <millis>1455454001417</millis>
+  <sequence>14</sequence>
+  <logger>NodeTreeComponent</logger>
+  <level>INFO</level>
+  <class>NodeTreeComponent</class>
+  <method>find</method>
+  <thread>15</thread>
+  <message>The value 3 is found</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:43</date>
+  <millis>1455454003996</millis>
+  <sequence>15</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$4</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Delete value: 5</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:43</date>
+  <millis>1455454003999</millis>
+  <sequence>16</sequence>
+  <logger>NodeTreeComponent</logger>
+  <level>INFO</level>
+  <class>NodeTreeComponent</class>
+  <method>getSuccessor</method>
+  <thread>15</thread>
+  <message>The value of successor: Node@455d69fd</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:47</date>
+  <millis>1455454007143</millis>
+  <sequence>17</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Selecting a color of the background</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:47</date>
+  <millis>1455454007146</millis>
+  <sequence>18</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>White color is selected</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:47</date>
+  <millis>1455454007149</millis>
+  <sequence>19</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Blue color is selected</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:47</date>
+  <millis>1455454007151</millis>
+  <sequence>20</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Background is updated</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:47</date>
+  <millis>1455454007686</millis>
+  <sequence>21</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Selecting a color of the background</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:47</date>
+  <millis>1455454007690</millis>
+  <sequence>22</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>White color is selected</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:47</date>
+  <millis>1455454007692</millis>
+  <sequence>23</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Yellow color is selected</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:47</date>
+  <millis>1455454007693</millis>
+  <sequence>24</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Background is updated</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:48</date>
+  <millis>1455454008258</millis>
+  <sequence>25</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Selecting a color of the background</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:48</date>
+  <millis>1455454008260</millis>
+  <sequence>26</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>White color is selected</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:48</date>
+  <millis>1455454008262</millis>
+  <sequence>27</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$1</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Background is updated</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:49</date>
+  <millis>1455454009352</millis>
+  <sequence>28</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Change state show leaves</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:49</date>
+  <millis>1455454009788</millis>
+  <sequence>29</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$5</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Change state show leaves</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:50</date>
+  <millis>1455454010263</millis>
+  <sequence>30</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$6</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Change state show branches</message>
+</record>
+<record>
+  <date>2016-02-14T14:46:50</date>
+  <millis>1455454010902</millis>
+  <sequence>31</sequence>
+  <logger>TreeFrame</logger>
+  <level>INFO</level>
+  <class>TreeFrame$6</class>
+  <method>actionPerformed</method>
+  <thread>15</thread>
+  <message>Change state show branches</message>
+</record>
+</log>

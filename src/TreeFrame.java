@@ -7,10 +7,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by evstropova on 01.02.2016.
@@ -51,6 +56,9 @@ public class TreeFrame extends JFrame {
     JPanel aNodeTreePanel;
     NodeTreeComponent aNodeTreeComponent;
 
+    private static Logger logger = Logger.getLogger(TreeFrame.class.getName());
+    public static Handler handler;
+
     public TreeFrame() {
         GridBagLayout layout = new GridBagLayout();
         panel = new JPanel(layout);
@@ -67,39 +75,60 @@ public class TreeFrame extends JFrame {
 
         ActionListener colorListener = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
+                //Протоколируем вход
+                logger.log(Level.INFO, "Selecting a color of the background");
+
                 Color color = null;
                 if (white.isSelected() || whiteMenuItem.isSelected()) {
+                    //Протоколируем выбор
+                    logger.log(Level.INFO, "White color is selected");
                     color = Color.WHITE;
-                    /*AbstractButton source = (AbstractButton) event.getSource();
-                    source.setSelected(true);*/
                 }
                 if (cyan.isSelected() || cyanMenuItem.isSelected()) {
+                    //Протоколируем выбор
+                    logger.log(Level.INFO, "Blue color is selected");
                     color = new Color(224, 255, 255);
                 }
                 if (yellow.isSelected() || yellowMenuItem.isSelected()) {
+                    //Протоколируем выбор
+                    logger.log(Level.INFO, "Yellow color is selected");
                     color = new Color(253, 234, 168);
                 }
+                //Протоколируем установку цвета
+                logger.log(Level.INFO, "Background is updated");
                 panel.setBackground(color);
             }
         };
 
         ActionListener insertListener = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
+                //Протоколируем вызов вставки элемента
+                logger.entering(TreeFrame.class.getName(), "The insert dialog is shown");
                 String value = JOptionPane.showInputDialog("Enter a value:");
+                //Протоколируем значение
+                logger.log(Level.INFO, "Insert value: "+value);
                 aNodeTreeComponent.insert(Integer.parseInt(value));
             }
         };
 
         ActionListener findListener = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
+                //Протоколируем вызов вставки элемента
+                logger.entering(TreeFrame.class.getName(), "The find dialog is shown");
                 String value = JOptionPane.showInputDialog("Enter a value:");
+                //Протоколируем значение
+                logger.log(Level.INFO, "Find value: "+value);
                 aNodeTreeComponent.find(Integer.parseInt(value));
             }
         };
 
         ActionListener deleteListener = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
+                //Протоколируем вызов вставки элемента
+                logger.entering(TreeFrame.class.getName(), "The delete dialog is shown");
                 String value = JOptionPane.showInputDialog("Enter a value:");
+                //Протоколируем значение
+                logger.log(Level.INFO, "Delete value: "+value);
                 aNodeTreeComponent.delete(Integer.parseInt(value));
             }
         };
@@ -128,7 +157,8 @@ public class TreeFrame extends JFrame {
 
         showCircles.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                //Вставить код для отображения/скрытия кругов
+                //Протоколируем вызов
+                logger.log(Level.INFO, "Change state show leaves");
                 aNodeTreeComponent.displayLeaf = ! aNodeTreeComponent.displayLeaf;
                 repaint();
             }
@@ -136,7 +166,8 @@ public class TreeFrame extends JFrame {
 
         showLines.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                //Вставить код для отображения/скрытия линий
+                //Протоколируем вызов
+                logger.log(Level.INFO, "Change state show branches");
                 aNodeTreeComponent.displayBranches = ! aNodeTreeComponent.displayBranches;
                 aNodeTreeComponent.redraw(aNodeTreeComponent.root, aNodeTreeComponent.ROOT_X, aNodeTreeComponent.ROOT_Y);
                 repaint();
@@ -244,6 +275,15 @@ public class TreeFrame extends JFrame {
     }
 
     public static void main(String[] args) {
+        //Настраиваем параметры логгера для протоколирования в файл
+        try {
+            handler = new FileHandler("%h/IdeaProjects/java-projects/Logging/LoggingTreeApp.log", 0, 10);
+            logger.addHandler(handler);
+        }
+        catch (IOException e) {
+            logger.log(Level.SEVERE, "Can't create log file handler", e);
+        }
+
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TreeFrame aTreeFrame = new TreeFrame();
@@ -313,8 +353,16 @@ class NodeTreeComponent extends JComponent {
     int valuePointer = -1;
     boolean displayLeaf = true;
     boolean displayBranches = false;
+    private Logger logger = Logger.getLogger(NodeTreeComponent.class.getName());
+
+    public NodeTreeComponent() {
+        logger.setLevel(Level.INFO);
+        logger.addHandler(TreeFrame.handler);
+    }
 
     public void insert(int value) {
+        //Протоколируем вход
+        logger.entering(NodeTreeComponent.class.getName(), "insert");
         Node newNode = new Node();
         newNode.value = value;
 
@@ -325,6 +373,8 @@ class NodeTreeComponent extends JComponent {
                 root = newNode;
                 root.leftChild = null;
                 root.rightChild = null;
+                //Протоколируем вставку корня
+                logger.log(Level.INFO, "Insert root, value: "+value);
                 map.put(value, new Point2D.Double(newNode.x, newNode.y));
                 repaint();
             } else {
@@ -339,11 +389,17 @@ class NodeTreeComponent extends JComponent {
                                 newNode.x = parent.x - 45;
                                 newNode.y = parent.y + 45;
                                 parent.leftChild = newNode;
+                                //Протоколируем вставку корня
+                                logger.log(Level.INFO, "Insert a new left child node, value: "+value);
                                 map.put(value, new Point2D.Double(newNode.x, newNode.y));
                                 redraw(root, ROOT_X, ROOT_Y);
                                 repaint();
                             }
-                            else JOptionPane.showMessageDialog(null, "You have exceeded an input window!");
+                            else {
+                                //Протоколируем выход за пределы окна
+                                logger.log(Level.INFO, "Insert a new left child node is not possible, value: "+value);
+                                JOptionPane.showMessageDialog(null, "You have exceeded an input window!");
+                            }
                             return;
                         }
                     } else {
@@ -353,11 +409,17 @@ class NodeTreeComponent extends JComponent {
                                 newNode.x = parent.x + 45;
                                 newNode.y = parent.y + 45;
                                 parent.rightChild = newNode;
+                                //Протоколируем вставку корня
+                                logger.log(Level.INFO, "Insert a new right child node, value: "+value);
                                 map.put(value, new Point2D.Double(newNode.x, newNode.y));
                                 redraw(root, ROOT_X, ROOT_Y);
                                 repaint();
                             }
-                            else JOptionPane.showMessageDialog(null, "You have exceeded an input window!");
+                            else {
+                                //Протоколируем выход за пределы окна
+                                logger.log(Level.INFO, "Insert a new right child node is not possible, value: "+value);
+                                JOptionPane.showMessageDialog(null, "You have exceeded an input window!");
+                            }
                             return;
                         }
                     }
@@ -365,11 +427,15 @@ class NodeTreeComponent extends JComponent {
             }
         }
         else {
+            //Протоколируем наличие узла с заданным значением
+            logger.log(Level.INFO, "The value "+value+" is already present in the tree");
             JOptionPane.showMessageDialog(null, "The value "+value+" is already present in the tree");
         }
     }
 
     public void delete(int value) {
+        //Протоколируем вход
+        logger.entering(NodeTreeComponent.class.getName(), "delete");
         Node current = root;
         Node parent = root;
         boolean isLeftChild = true;
@@ -383,7 +449,11 @@ class NodeTreeComponent extends JComponent {
                 isLeftChild = false;
                 current = current.rightChild;
             }
-            if (current == null) return;
+            if (current == null) {
+                //Протоколируем отсутствие узла для удаления
+                logger.log(Level.INFO, "The value "+value+" is not present in the tree");
+                return;
+            }
         }
         // Листовой узел
         if(current.rightChild == null && current.leftChild == null) {
@@ -415,6 +485,8 @@ class NodeTreeComponent extends JComponent {
                 if(isLeftChild) parent.leftChild = successor;
                 else parent.rightChild = successor;
         }
+        //Протоколируем выход
+        logger.exiting(NodeTreeComponent.class.getName(), "delete");
         map.clear();
         mapBranches.clear();
         redraw(root, ROOT_X, ROOT_Y);
@@ -422,18 +494,24 @@ class NodeTreeComponent extends JComponent {
     }
 
     public boolean find(int value) {
+        //Протоколируем вход
+        logger.entering(NodeTreeComponent.class.getName(), "find");
         Node current = root;
         while (current != null) {
             if (value == current.value) {
                 setPointer = true;
                 valuePointer = value;
                 repaint();
+                //Протоколируем нахождение корня
+                logger.log(Level.INFO, "The value "+value+" is found");
                 return true;
             }
             if (value < current.value)
                 current = current.leftChild;
             else current = current.rightChild;
         }
+        //Протоколируем нахождение корня
+        logger.log(Level.INFO, "The value "+value+" is not found");
         return false;
     }
 
@@ -475,6 +553,8 @@ class NodeTreeComponent extends JComponent {
     }
 
     public Node getSuccessor(Node delNode) {
+        //Протоколируем вход
+        logger.entering(NodeTreeComponent.class.getName(), "getSuccessor");
         Node current = delNode.rightChild;
         Node successorParent = delNode;
         Node successor = delNode;
@@ -487,6 +567,8 @@ class NodeTreeComponent extends JComponent {
             successorParent.leftChild = successor.rightChild;
             successor.rightChild = delNode.rightChild;
         }
+        //Протоколируем значение преемника
+        logger.log(Level.INFO, "The value of successor: "+successor);
         return successor;
     }
 }
